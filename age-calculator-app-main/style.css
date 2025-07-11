@@ -114,3 +114,7 @@ label{
     font-style: italic;
 }
 
+.error-msg{
+    padding-top: 5px;
+}
+
