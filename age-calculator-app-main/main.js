@@ -3,11 +3,11 @@ const dayInput = document.getElementById('dayInput')
 const monthInput = document.getElementById('monthInput')
 const yearInput = document.getElementById('yearInput')
 const submitBtn = document.getElementById('submitBtn');
-const yearsOutput = document.getElementById('years'); // Renamed for clarity
-const monthsOutput = document.getElementById('months'); // Renamed for clarity
-const daysOutput = document.getElementById('days'); // Renamed for clarity
+const yearsOutput = document.getElementById('years'); 
+const monthsOutput = document.getElementById('months'); 
+const daysOutput = document.getElementById('days'); 
 
-// Moved input event listeners OUTSIDE the submit handler
+
 dayInput.addEventListener('input', () => resetErrorInput(dayInput));
 monthInput.addEventListener('input', () => resetErrorInput(monthInput));
 yearInput.addEventListener('input', () => resetErrorInput(yearInput));
@@ -119,9 +119,10 @@ function resetErrorInput(inputElement) {
     const label = inputGroup.querySelector('.input-label');
     label.style.color = '';
     inputElement.style.borderColor = '';
+    
 }
 
-// NEW: Reset all errors
+
 function resetErrors() {
     document.querySelectorAll('.error-msg').forEach(el => el.remove());
     document.querySelectorAll('.input-label').forEach(label => {
@@ -132,7 +133,7 @@ function resetErrors() {
     });
 }
 
-// FIXED: Correct age calculation
+
 function calculateAge(dayIn, monthIn, yearIn) {
     const birthDate = new Date(yearIn, monthIn - 1, dayIn);
     const today = new Date();
@@ -141,21 +142,17 @@ function calculateAge(dayIn, monthIn, yearIn) {
     let months = today.getMonth() - birthDate.getMonth();
     let days = today.getDate() - birthDate.getDate();
     
-    // Handle negative days
     if (days < 0) {
         months--;
-        // Get days in previous month
         const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
         days += prevMonth.getDate();
     }
     
-    // Handle negative months
     if (months < 0) {
         years--;
         months += 12;
     }
     
-    // Update outputs
     yearsOutput.textContent = years;
     monthsOutput.textContent = months;
     daysOutput.textContent = days;
