@@ -117,4 +117,12 @@ label{
 .error-msg{
     padding-top: 5px;
 }
+@media (max-width: 400px){
+    .submit-btn{
+        right: 40%;
+    }
+    form{
+        padding-bottom: 3rem;
+    }
+}
 
