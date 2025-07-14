@@ -7,6 +7,8 @@ const yearsOutput = document.getElementById('years');
 const monthsOutput = document.getElementById('months'); 
 const daysOutput = document.getElementById('days'); 
 
+formAge.noValidate = true;
+
 
 dayInput.addEventListener('input', () => resetErrorInput(dayInput));
 monthInput.addEventListener('input', () => resetErrorInput(monthInput));
